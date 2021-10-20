@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-primary mt-2">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Product Management System</span>
+        <span class="navbar-brand mb-0 h1">{{getTitle()}}</span>
         <form class="d-flex">
             <input type="text" class="form-control me-2" placeholder="Filter">
         </form>
@@ -17,7 +17,7 @@
     <div class="btn btn-primary">Show Images</div>
 </div>
 
-<div class="table-responsive mt-3">
+<div class="table-responsive mt-3" *ngIf="products != null && products.length > 0">
     <table class="table">
         <thead>
             <tr>
@@ -25,9 +25,19 @@
                 <th>Code</th>
                 <th>Name</th>
                 <th>Unit Price</th>
-                <th>Amount Available</th>
+                <th>Release Date</th>
                 <th>Star Rating</th>
             </tr>
         </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td><img src="{{product.imageUrl}}" style="height: 20px"></td>
+                <td>{{product.productCode}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.releaseDate}}</td>
+                <td>{{product.starRating}}</td>
+            </tr>
+        </tbody>
     </table>
 </div>
