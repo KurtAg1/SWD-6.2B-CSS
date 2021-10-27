@@ -8,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class ProductListComponent implements OnInit {
 
   title: string = "Product Management System v1.0";
+  colour: string = "green";
+
+  imageWidth: number = 40;
+  imageMargin: number = 2;
+
+  areImagesVisible: boolean = true;
+
   products: any[] = [
     {
         "productId": 1,
@@ -63,6 +70,11 @@ export class ProductListComponent implements OnInit {
 
   getTitle(): string {
     return this.title;
+  }
+
+  toggleImages(): void{
+    this.areImagesVisible = !this.areImagesVisible;
+    console.log(this.areImagesVisible);
   }
 
   constructor() { }
