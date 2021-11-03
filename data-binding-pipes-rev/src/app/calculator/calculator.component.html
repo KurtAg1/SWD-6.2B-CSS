@@ -1,0 +1,19 @@
+<label for="firstValue">First Value</label>
+<br>
+<input 
+    name="firstValue" 
+    type="number" 
+    class="form-control"
+    [(ngModel)]="firstValue">
+<br>
+
+<label for="secondValue">Second Value</label>
+<br>
+<input 
+    name="secondValue" 
+    type="number" 
+    class="form-control"
+    [(ngModel)]="secondValue">
+<br>
+
+<p>The multiplication of these two values results in: {{calculate()}}</p>
