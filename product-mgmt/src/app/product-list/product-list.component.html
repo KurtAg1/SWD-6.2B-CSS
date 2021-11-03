@@ -2,14 +2,19 @@
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">{{getTitle()}}</span>
         <form class="d-flex">
-            <input type="text" class="form-control me-2" placeholder="Filter">
+            <input 
+                name="txtListFilter" 
+                type="text" 
+                class="form-control me-2" 
+                placeholder="Filter"
+                [(ngModel)]="listFilter">
         </form>
     </div>
 </nav>
 
 <div class="card mt-3">
     <div class="card-body">
-        Filtering by:
+        Filtering by: {{listFilter}}
     </div>
 </div>
 
@@ -31,11 +36,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let product of products">
-                <td><img *ngIf="areImagesVisible" [src]='product.imageUrl' [title]='product.productName'
-                        [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
-                <td>{{product.productCode}}</td>
-                <td>{{product.productName}}</td>
-                <td>{{product.price}}</td>
+                <td><img 
+                        *ngIf="areImagesVisible" 
+                        [src]='product.imageUrl' 
+                        [title]='product.productName | uppercase'
+                        [style.width.px]='imageWidth' 
+                        [style.margin.px]='imageMargin'></td>
+                <td>{{product.productCode | lowercase}}</td>
+                <td>{{product.productName | uppercase}}</td>
+                <td>{{product.price | currency:'EUR':'symbol':'2.2-2' }}</td>
                 <td>{{product.releaseDate}}</td>
                 <td>{{product.starRating}}</td>
             </tr>
