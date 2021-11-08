@@ -9,14 +9,15 @@ export class CalculatorComponent implements OnInit {
 
   firstValue: number = 0;
   secondValue: number = 0;
+  result: number = 0;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  calculate(): number{
-    return this.firstValue * this.secondValue;
+  calculate(): void{
+    this.result = this.firstValue * this.secondValue;
   }
 
 }

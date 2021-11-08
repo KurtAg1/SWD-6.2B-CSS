@@ -17,6 +17,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
     FormsModule
   ],
   providers: [],
+  // bootstrap: [AppComponent]
   bootstrap: [CalculatorComponent]
 })
 export class AppModule { }

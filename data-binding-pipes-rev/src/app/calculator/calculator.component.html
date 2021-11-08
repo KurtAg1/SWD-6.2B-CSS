@@ -3,17 +3,20 @@
 <input 
     name="firstValue" 
     type="number" 
-    class="form-control"
-    [(ngModel)]="firstValue">
+    [(ngModel)]="firstValue"
+    (input)="calculate()">
 <br>
 
 <label for="secondValue">Second Value</label>
 <br>
 <input 
     name="secondValue" 
-    type="number" 
-    class="form-control"
-    [(ngModel)]="secondValue">
+    type="number"
+    [(ngModel)]="secondValue"
+    (input)="calculate()">
 <br>
-
-<p>The multiplication of these two values results in: {{calculate()}}</p>
+<div>
+    <p>First Value: {{firstValue}}</p>
+    <p>Second value: {{secondValue}}</p>
+    <p>Result: {{result}}</p>
+</div>

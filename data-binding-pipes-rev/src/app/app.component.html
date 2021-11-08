@@ -1,16 +1,20 @@
-<!-- <div>
+<div>
   <p>Use interpolation and pipes to display the dates</p>
   <ul>
     <li>
-      {{birthday | date}}
+      {{birthday | date: 'mediumDate'}}
     </li>
     <li>
       {{birthday | date : 'd/M/yy'}}
     </li>
   </ul>
-</div> -->
+</div>
 
 <button (click)="toggleFormat()">Toggle Format</button>
 <div>
   <p>Date: {{birthday | date : isShortDate ? 'shortDate' : 'fullDate'}}</p>
+</div>
+
+<div>
+  {{birthday | date :'longDate' | uppercase}}
 </div>
