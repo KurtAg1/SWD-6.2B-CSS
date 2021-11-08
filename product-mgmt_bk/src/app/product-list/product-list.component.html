@@ -1,0 +1,72 @@
+<nav class="navbar navbar-dark bg-primary mt-2">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">{{getTitle()}}</span>
+        <form class="d-flex">
+            <input 
+                name="txtListFilter" 
+                type="text" 
+                class="form-control me-2" 
+                placeholder="Filter"
+                [(ngModel)]="listFilter">
+        </form>
+    </div>
+</nav>
+
+<div class="card mt-3">
+    <div class="card-body">
+        Filtering by: {{listFilter}}
+    </div>
+</div>
+
+<div class="mt-3">
+    <button class="btn btn-primary" (click)="toggleImages()">{{areImagesVisible ? 'Hide' : 'Show'}} Images</button>
+</div>
+
+<div class="table-responsive mt-3" *ngIf="products != null && products.length > 0">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item Image</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Unit Price</th>
+                <th>Release Date</th>
+                <th>Star Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td><img 
+                        *ngIf="areImagesVisible" 
+                        [src]='product.imageUrl' 
+                        [title]='product.productName | uppercase'
+                        [style.width.px]='imageWidth' 
+                        [style.margin.px]='imageMargin'></td>
+                <td>{{product.productCode | lowercase}}</td>
+                <td>{{product.productName | uppercase}}</td>
+                <td>{{product.price | currency:'EUR':'symbol':'2.2-2' }}</td>
+                <td>{{product.releaseDate}}</td>
+                <td>{{product.starRating}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="mt-5">
+    <p>{{'Hello and Welcome to ' + 'Angular data binding'}}</p>
+</div>
+
+<div class="mt-5">
+    <p>{{100*80}}</p>
+</div>
+
+<div class="mt-5">
+    <p style.color={{colour}}>This is coloured</p>
+</div>
+
+<div class="mt-5">
+    <p [innerText]="title"></p>
+    <p [innerText]="getTitle()"></p>
+    <p [innerText]="'Hello and welcome to ' + 'Angular data binding'"></p>
+    <p [style.color]="colour">This is coloured</p>
+</div>
