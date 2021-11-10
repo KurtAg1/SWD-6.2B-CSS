@@ -39,13 +39,13 @@
                 <td><img 
                         *ngIf="areImagesVisible" 
                         [src]='product.imageUrl' 
-                        [title]='product.productName | uppercase'
+                        [title]='product.name | uppercase'
                         [style.width.px]='imageWidth' 
                         [style.margin.px]='imageMargin'></td>
-                <td>{{product.productCode | lowercase}}</td>
-                <td>{{product.productName | uppercase}}</td>
+                <td>{{product.code | lowercase | convertToSpaces:'-'}}</td>
+                <td>{{product.name | uppercase}}</td>
                 <td>{{product.price | currency:'EUR':'symbol':'2.2-2' }}</td>
-                <td>{{product.releaseDate}}</td>
+                <td>{{product.releaseDate | date}}</td>
                 <td>{{product.starRating}}</td>
             </tr>
         </tbody>
