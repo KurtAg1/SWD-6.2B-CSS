@@ -22,7 +22,7 @@
     <button class="btn btn-primary" (click)="toggleImages()">{{areImagesVisible ? 'Hide' : 'Show'}} Images</button>
 </div>
 
-<div class="table-responsive mt-3" *ngIf="products != null && products.length > 0">
+<div class="table-responsive mt-3" *ngIf="filteredProducts != null && filteredProducts.length > 0">
     <table class="table">
         <thead>
             <tr>
@@ -35,7 +35,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products">
+            <tr *ngFor="let product of filteredProducts">
                 <td><img 
                         *ngIf="areImagesVisible" 
                         [src]='product.imageUrl' 

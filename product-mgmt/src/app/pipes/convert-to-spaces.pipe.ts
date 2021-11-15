@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 export class ConvertToSpacesPipe implements PipeTransform{
     transform(value: any, ...args: any[]) {
-        return value.replace(args[0], ' ');
+        return value.replaceAll(args[0], ' ');
     }
     
 }

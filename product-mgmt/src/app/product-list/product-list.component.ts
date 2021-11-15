@@ -15,14 +15,31 @@ export class ProductListComponent implements OnInit {
   imageMargin: number = 2;
 
   products: Product[] = [];
+  filteredProducts: Product[] = [];
 
   areImagesVisible: boolean = true;
-  listFilter: string = '';
+  private _listFilter: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
     this.initialiseProducts();
+  }
+
+  get listFilter(): string{
+    return this._listFilter;
+  }
+
+  set listFilter(listFilter: string){
+    this._listFilter = listFilter;
+    this.filteredProducts = this.performFilter(this._listFilter);
+  }
+
+  performFilter(filterBy: string): Product[] {
+    filterBy = filterBy.toLowerCase();
+    return this.products.filter((product: Product) => {
+      return product.name.toLowerCase().indexOf(filterBy) != -1;
+    });
   }
 
   initialiseProducts(){
@@ -77,7 +94,8 @@ export class ProductListComponent implements OnInit {
         4.6,
         "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png",
       ),
-    )
+    );
+    this.filteredProducts = this.products;
   }
 
   getTitle(): string {
