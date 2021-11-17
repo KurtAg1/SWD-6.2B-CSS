@@ -106,4 +106,8 @@ export class ProductListComponent implements OnInit {
     this.areImagesVisible = !this.areImagesVisible;
   }
 
+  onNotify(event: string): void{
+    console.log(event);
+  }
+
 }
