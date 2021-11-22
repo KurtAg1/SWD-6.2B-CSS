@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
+  message: string = '';
 
   areImagesVisible: boolean = true;
   private _listFilter: string = '';
@@ -106,8 +107,8 @@ export class ProductListComponent implements OnInit {
     this.areImagesVisible = !this.areImagesVisible;
   }
 
-  onNotify(event: string): void{
-    console.log(event);
+  onNotify(message: string): void{
+    this.message = message;
   }
 
 }
