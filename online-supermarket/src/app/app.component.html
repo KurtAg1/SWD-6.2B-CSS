@@ -1,1 +1,11 @@
 <app-header></app-header>
+<div class="container mt-4">
+    <div *ngIf="total > 0" class="alert alert-info" role="alert">
+        Total value of items bought: {{total | currency:'EUR':'symbol':'1.2-2'}}
+      </div>
+    <div class="row">
+        <div *ngFor="let item of items" class="col-md-6">
+            <app-single-item [item]="item" (onPurchase)="onPurchase($event)"></app-single-item>
+        </div>
+    </div>
+</div>

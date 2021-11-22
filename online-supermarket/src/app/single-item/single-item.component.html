@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-header">
+        Product #{{item.id}}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">Can be yours for: {{item.price | currency:'EUR':'symbol':'1.2-2'}}</p>
+        <a (click)="onClick()" class="btn btn-primary">Buy Now</a>
+    </div>
+</div>
