@@ -36,4 +36,8 @@ export class TodoItem{
     public set isCompleted(isCompleted: boolean){
         this._isCompleted = isCompleted;
     }
+
+    public markAsDone() : void {
+        this.isCompleted = true;
+    }
 }

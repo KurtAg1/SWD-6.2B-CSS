@@ -1,19 +1,24 @@
 <app-header></app-header>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-6 mt-4" *ngFor="let item of items">
             <div class="card h-100">
-                <div class="card-header text-white"
-                [ngClass]="{'bg-success': item.isCompleted, 
-                            'bg-danger': !item.isCompleted}">
+                <div class="card-header text-white" 
+                     [ngClass]="{'bg-success': item.isCompleted, 
+                                 'bg-danger': !item.isCompleted}">
                     <b>Item {{item.id}}</b> | {{item.isCompleted ? 'Completed' : 'Pending'}}
                 </div>
                 <div class="card-body">
                     <p class="card-text">{{item.description}}</p>
                 </div>
                 <div class="card-footer" *ngIf='!item.isCompleted'>
-                    <button (click)='item.isCompleted = true' type="button" class="btn btn-sm btn-secondary">Mark as done</button>
-                 </div>
+                    <button (click)='item.markAsDone()' 
+                            type="button" 
+                            class="btn btn-sm btn-secondary">
+                            Mark as done
+                    </button>
+                </div>
             </div>
         </div>
     </div>
