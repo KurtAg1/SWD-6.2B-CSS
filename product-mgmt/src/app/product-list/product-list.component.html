@@ -1,5 +1,17 @@
 <div class="card mt-3">
     <div class="card-body">
+        <form class="d-flex">
+            <input [(ngModel)]="listFilter" 
+                    name="txtListFIlter" 
+                    class="form-control me-2" 
+                    type="text"
+                    placeholder="Filter">
+        </form>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
         Filtering by: {{listFilter}}
     </div>
 </div>
@@ -22,17 +34,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let product of products">
-                <td><img 
-                        *ngIf="areImagesVisible" 
-                        [src]='product.imageUrl' 
-                        [title]='product.name | uppercase'
-                        [style.width.px]='imageWidth' 
-                        [style.margin.px]='imageMargin'></td>
+                <td><img *ngIf="areImagesVisible" [src]='product.imageUrl' [title]='product.name | uppercase'
+                        [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
                 <td>{{product.code | lowercase | convertToSpaces:'-'}}</td>
-                <td>{{product.name | uppercase}}</td>
+                <td><a [routerLink]="['/products', product.id]">{{product.name | uppercase}}</a></td>
                 <td>{{product.price | currency:'EUR':'symbol':'2.2-2' }}</td>
                 <td>{{product.releaseDate | date}}</td>
-                <td><app-star-rating [rating]="product.starRating" (notify)="onNotify($event)"></app-star-rating></td>
+                <td>
+                    <app-star-rating [rating]="product.starRating" (notify)="onNotify($event)"></app-star-rating>
+                </td>
             </tr>
         </tbody>
     </table>

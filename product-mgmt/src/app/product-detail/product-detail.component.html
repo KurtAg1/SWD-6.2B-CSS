@@ -1,1 +1,74 @@
-<p>product-detail works!</p>
+<div class="card">
+    <div class="card-header">
+        Product ID: {{product.id}}
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">
+                Code
+            </div>
+            <div class="col-md-10">
+                {{product.code}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                Name
+            </div>
+            <div class="col-md-10">
+                {{product.name}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                Description
+            </div>
+            <div class="col-md-10">
+                {{product.description}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                Price
+            </div>
+            <div class="col-md-10">
+                {{product.price | currency:'EUR':'symbol':'2.2-2'}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                Release Date
+            </div>
+            <div class="col-md-10">
+                {{product.releaseDate | date}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                Star Rating
+            </div>
+            <div class="col-md-10">
+                <app-star-rating [rating]="product.starRating"></app-star-rating>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                Image
+            </div>
+            <div class="col-md-10">
+                <img [src]="product.imageUrl" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-2">
+    <button type="button" class='btn btn-primary' (click)="onBackButtonClick()">Back to Product List</button>
+</div>
